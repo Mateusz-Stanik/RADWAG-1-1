@@ -1,0 +1,248 @@
+*{
+    /* padding: 0;
+    margin: 0; */
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    overflow-x: visible;
+    background-color: #add8e6;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+#title{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #0b494980;
+    min-width: 99vw;
+    height: auto;
+    font-size: 250%;
+    padding: 1vh 0;
+}
+#container{
+    overflow-x: visible;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+    min-width: 99vw !important;
+    height: auto;
+    font-size: 1.6vw;
+}
+
+.looks{
+    overflow-x: visible;
+    border-radius: 15px;
+    background: #add8e6;
+    max-height:100% !important;
+    max-width: 100% !important;
+    display: inline-block;
+    padding: 1.5vw;
+    margin: 0 auto;
+}
+.looks:hover {
+    animation-name: glowout;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+  }
+.Data{
+    overflow-x: visible;
+    max-height:100% !important;
+    max-width: 100% !important;
+    display: inline-block;
+    margin: 0 auto;
+    background-color: #e0ffff;
+    padding: 2vw 2vw;
+}
+.Recent{
+    padding: 0.075vw;
+    border: 2px solid #0b4949;
+    border-radius: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Prev{
+    display: grid; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
+    gap: 0; 
+    grid-template-areas: 
+      "Top Top Top"
+      "Bottom Bottom Bottom"
+      "Bottom Bottom Bottom"
+      "Bottom Bottom Bottom"; 
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    border: 2px solid #0b4949;
+    border-collapse: collapse;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1px;
+}
+.Top{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2px solid #0b4949;
+    border-bottom: 1px solid #0b4949;
+    background-color: #0b494980;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+.Bottom{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 2px solid #0b4949;
+    border-top: 1px solid #0b4949;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+.Bottom-Wyk{
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Bottom.homer{
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: 2px solid #0b4949;
+    border-left: 2px solid #0b4949;
+}
+.Srednia{
+    border: 2px solid #0b4949;
+    border-radius: 5px;
+}
+#Pomiar{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: larger;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #e0ffff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width:50vw;
+    height: auto;
+    font-size: 1.35vw;
+    padding: 1vh 0;
+}
+#Pomiar.Top{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2px solid #0b4949;
+    border-bottom: 1px solid #0b4949;
+    background-color: #0b494980;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+.homer{
+    background-color: #e0ffff;
+}
+.Bottom:hover{
+    animation-name: sredni;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+.Bottom.homer:hover{
+    transform: scale(1.3);
+    transition: 0.3s ease-in;
+}
+#Pomiar.Bottom.homer:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease-in;
+    animation-name: sredni;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@media screen and (max-width: 1308px){
+    #container {
+         width:50vw;
+     }
+     .looks{
+         width: auto;
+         margin:0 auto;
+         height: auto;
+         font-size: 2vw;
+     }
+ }
+@media screen and (max-width: 1024px){
+    #title{
+        width: 80vw;
+        margin:0 auto;
+        height: auto;
+    }
+   #container {
+        display: flex;
+        flex-direction: column;
+        margin:0 auto;
+        width:auto;
+        font-size: larger;
+    }
+    .looks{
+        width: 80vw;
+        margin:0 auto;
+        height: auto;
+    }
+    .Data{
+        max-height:90vh !important;
+        max-width: 90vw !important;
+        margin: 0 auto;
+    }
+    img{
+        width: 2vw;
+    }
+}
+@keyframes glowit {
+    0% {box-shadow: 0px 0px 5px 0px rgba(120,120,120,0.75);}
+    50% {box-shadow: 0px 0px 5px 10px rgba(120,120,120,0.75);}
+    100% {box-shadow: 0px 0px 5px 0px rgba(120,120,120,0.75);}
+}
+@keyframes glowout {
+    0% {background-color: #add8e6;}
+    50% {background-color: #e0ffff80;}
+    100% {background-color: #add8e6;}
+}
+@keyframes sredni {
+    0% {background-color: #e0ffff;}
+    50% {background-color: #76a4a4;}
+    100% {background-color: #e0ffff;}
+}
