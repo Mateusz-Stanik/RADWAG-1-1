@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: red;
+        }
+        .box2{
+            background-color: purple;
+        }
+        .box3{
+            background-color: red;
+        }
+    </style>
+</head>
+<body class="vsc-initialized">
+    <div id="app" v-cloak>
+        <h3>
+            {{ greet }}
+        </h3>
+        <input @keyup.enter="greeting(greet + ' Gamer!')" v-model="greet" />
+
+        <hr/>
+
+        <button @click="isVisible = true">Show Box</button>
+        <div v-if="isVisible" class="box">G</div>
+        <button @click="toggleBox">Toggle Box</button>
+        <!-- @click.right is for looking out for right clicks of mouse
+             @click.prevent to prevent making a submit (Also there ain't no limits to the methods (the .somethin stuff)) -->
+        <div v-if="isVisible2" class="box2">G</div>
+
+        <hr/>
+
+        <login-form/>
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data: function() {
+                return {
+                    greet: 'Heya!',
+                    isVisible: false,
+                    isVisible2: false
+                }
+            },
+            methods: {
+                toggleBox(){
+                    this.isVisible2 = !this.isVisible2
+                },
+                greeting(greet){
+                    console.log(greet)
+                }
+            }
+        })
+
+        app.component('login-form', {
+            template: `
+            <div class="looks">
+            <h1 class="Top">Waga</h1>
+            <div class="Data">
+                <div class="Recent">
+                    <p class="Top">
+                        Masa
+                    </p>
+                    <p class="Bottom homer" style="font-size: 1.75vw;" id="measurement2">
+                        45kg
+                    </p>
+                    <div class="Top">
+                        <img src="/stability.png" style="width:1.4vw; height:auto; margin-left: auto; margin-right: auto;"/>
+                        <img src="/zero.png" style="width:1.4vw; height:auto; margin-left: auto; margin-right: auto;"/>
+                        <img src="/weight.png" style="width:1.4vw; height:auto; margin-left: auto; margin-right: auto;"/>
+                    </div>
+                    <div class="Bottom-Wyk">
+                        <p class="Bottom homer" style="border-right: 1px solid #0b4949;">0</p>
+                        <p class="Bottom homer" style="border-left: 1px solid #0b4949; border-right: 1px solid #0b4949">0</p>
+                        <p class="Bottom homer" style="border-left: 1px solid #0b4949;">0</p>
+                    </div>
+                </div>
+                <h3>Poprzednie Miary</h3>
+                <div class="Prev">
+                    <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Masa</p>
+                    <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Tara</p>
+                    <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Czas</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-2-1">21kg</p>
+                    <p class="Bottom" style="border-top: 0">20g</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-2-2">3kg</p>
+                    <p class="Bottom" style="border-top: 0">1g</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-2-3">17kg</p>
+                    <p class="Bottom" style="border-top: 0">20g</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                </div>
+            </div>
+        </div>
+            `
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

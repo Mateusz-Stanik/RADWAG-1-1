@@ -2,22 +2,26 @@
 <html lang="pl-PL">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Praktyki</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <script type="module">
-        import { createApp } from 'vue'
-        
-        createApp({
-          // component options
-          // declare some reactive state here.
-        }).mount('#app')
+        import { ref } from 'vue'
+import Wagas from 'Wagas.vue'
+  
+const posts = ref([
+  { id: 1, mass: 15},
+  { id: 2, mass: 15},
+  { id: 3, mass: 15},
+  { id: 4, mass: 15},
+  { id: 5, mass: 15}
+]).mount('#app')
     </script>
     <h1 class="Recent" id="title">Pomiary</h1>
-    <div id="container">
-        <div class="looks">
+    <div id="app">
+        <div class="looks"  :title="message">
             <h1 class="Top">Waga 1</h1>
             <div class="Data">
                 <div class="Recent">
@@ -25,7 +29,7 @@
                         Masa
                     </p>
                     <p class="Bottom homer" style="font-size: 1.75vw;" id="measurement1">
-                        45kg
+                        {{mass}}
                     </p>
                     <div class="Top">
                         <img src="stability.png" style="width:1.4vw; height:auto; margin-left: auto; margin-right: auto;"/>
@@ -41,17 +45,13 @@
                 <h3>Poprzednie Miary</h3>
                 <div class="Prev">
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Masa</p>
-                    <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Tara</p>
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Czas</p>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-1-1">21kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousTime-1-1">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-1-2">3kg</th>
-                    <p class="Bottom" style="border-top: 0">1g</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousTime-1-2">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-1-3">17kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousTime-1-3">12:23</th>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-1-1">21kg</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousTime-1-1">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-1-2">3kg</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousTime-1-2">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-1-3">17kg</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousTime-1-3">12:23</p>
                 </div>
             </div>
         </div>
@@ -79,17 +79,13 @@
                 <h3>Poprzednie Miary</h3>
                 <div class="Prev">
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Masa</p>
-                    <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Tara</p>
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Czas</p>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-2-1">21kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-2-2">3kg</th>
-                    <p class="Bottom" style="border-top: 0">1g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-2-3">17kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-2-1">21kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-2-2">3kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-2-3">17kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
                 </div>
             </div>
         </div>
@@ -118,17 +114,13 @@
                 <h3>Poprzednie Miary</h3>
                 <div class="Prev">
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Masa</p>
-                    <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Tara</p>
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Czas</p>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-3-1">21kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-3-2">3kg</th>
-                    <p class="Bottom" style="border-top: 0">1g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-3-3">17kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-3-1">21kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-3-2">3kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-3-3">17kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
                 </div>
             </div>
         </div>
@@ -157,17 +149,13 @@
                 <h3>Poprzednie Miary</h3>
                 <div class="Prev">
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Masa</p>
-                    <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Tara</p>
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Czas</p>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-4-1">21kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-4-2">3kg</th>
-                    <p class="Bottom" style="border-top: 0">1g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-4-3">17kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-4-1">21kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-4-2">3kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-4-3">17kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
                 </div>
             </div>
         </div>
@@ -196,17 +184,13 @@
                 <h3>Poprzednie Miary</h3>
                 <div class="Prev">
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Masa</p>
-                    <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Tara</p>
                     <p class="Top" style="width: 100%; border-bottom: 2px solid #0b4949;">Czas</p>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-5-1">21kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-5-2">3kg</th>
-                    <p class="Bottom" style="border-top: 0">1g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
-                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-5-3">17kg</th>
-                    <p class="Bottom" style="border-top: 0">20g</th>
-                    <p class="Bottom" style="border-top: 0">12:23</th>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-5-1">21kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-5-2">3kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
+                    <p class="Bottom" style="border-top: 0" id="PreviousMasa-5-3">17kg</p>
+                    <p class="Bottom" style="border-top: 0">12:23</p>
                 </div>
             </div>
         </div>
@@ -215,7 +199,6 @@
         <h3 id="Pomiar" class="Top">Średnia Wszystkich Pomiarów</h3>
         <p id="Pomiar" class="Bottom homer">21.5kg</p>
     </div>
-    <script src="index.js">
-    </script>
+
 </body>
 </html>

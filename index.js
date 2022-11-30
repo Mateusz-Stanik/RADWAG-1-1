@@ -1,27 +1,61 @@
-const Waga1 = [0, 18, 45];
-const Waga2 = [0, 18, 45];
-const Waga3 = [0, 18, 45];
-const Waga4 = [0, 18, 45];
-const Waga5 = [0, 18, 45];
+import { ref, computed } from 'vue'
 
-function NewMeasure() {
-    let input = prompt("What's the new number?");
-    document.getElementById("measurement1").innerHTML = input+"kg";
-}
+export default {
+  name: 'TreeItem', // necessary for self-reference
+  props: {
+    model: Object
+  },
+  setup(props) {
+    const isOpen = ref(false)
+    const isFolder = computed(() => {
+      return props.model.children && props.model.children.length
+    })
 
-// document.getElementById("measurement1").innerHTML = Waga1[0]+"kg";
+    function toggle() {
+      isOpen.value = !isOpen.value
+    }
 
+    function changeType() {
+      if (!isFolder.value) {
+        props.model.children = []
+        addChild()
+        isOpen.value = true
+      }
+    }
 
-document.getElementById("PreviousMasa-1-1").innerHTML = Waga1[1]+"kg";
+    function addChild() {
+      props.model.children.push({ name: 'new stuff' })
+    }
 
-
-document.getElementById("PreviousMasa-5-3").innerHTML = Waga1[2]+"kg";
-
-var d = new Date();
-
-if(d.getMinutes<10){
-document.getElementById("PreviousTime-1-1").innerHTML = d.getHours()+":0"+d.getMinutes();
-}
-else{
-document.getElementById("PreviousTime-1-1").innerHTML = d.getHours()+":"+d.getMinutes();
+    return {
+      isOpen,
+      isFolder,
+      toggle,
+      changeType,
+      addChild
+    }
+  },
+  template: `
+  <li>
+    <div
+      :class="{ bold: isFolder }"
+      @click="toggle"
+      @dblclick="changeType">
+      {{ model.name }}
+      <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
+    </div>
+    <ul v-show="isOpen" v-if="isFolder">
+      <!--
+        A component can recursively render itself using its
+        "name" option (inferred from filename if using SFC)
+      -->
+      <tree-item
+        class="item"
+        v-for="model in model.children"
+        :model="model">
+      </tree-item>
+      <li class="add" @click="addChild">+</li>
+    </ul>
+  </li>
+  `
 }

@@ -1,12 +1,22 @@
-<script type="module">
-import { createApp } from 'vue'
-
-createApp({
-  // component options
-  // declare some reactive state here.
-}).mount('#app')
+<script setup>
+import { ref } from 'vue'
+import Wagas from 'Wagas.vue'
+  
+const posts = ref([
+  { id: 1, mass: 15, optional: [0,1,30],},
+  { id: 2, mass: 15, optional: [0,1,30],},
+  { id: 3, mass: 15, optional: [0,1,30],},
+  { id: 4, mass: 15, optional: [0,1,30],},
+  { id: 5, mass: 15, optional: [0,1,30],}
+])
 </script>
 
 <template>
-    <h1>Make me dynamic!</h1>
-  </template>
+	<Wagas
+    v-for="post in posts"
+	  :key="post.id"
+  	:title="post.id"
+    :mass="post.mass"
+    :optional="post.optional"
+	></Wagas>
+</template>

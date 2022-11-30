@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: red;
+        }
+        .box2{
+            background-color: purple;
+        }
+        .box3{
+            background-color: red;
+        }
+    </style>
+</head>
+<body class="vsc-initialized">
+    <div id="app" v-cloak>
+        <h3>
+            {{ greet }}
+        </h3>
+        <input @keyup.enter="greeting(greet + ' Gamer!')" v-model="greet" />
+
+        <hr/>
+
+        <button @click="increment">count is: {{ count }}</button>
+        
+        <hr/>
+
+        <button @click="isVisible = true">Show Box</button>
+        <div v-if="isVisible" class="box">G</div>
+        <button @click="toggleBox">Toggle Box</button>
+        <!-- @click.right is for looking out for right clicks of mouse
+             @click.prevent to prevent making a submit (Also there ain't no limits to the methods (the .somethin stuff)) -->
+        <div v-if="isVisible2" class="box2">G</div>
+
+        <hr/>
+
+        <login-form/>
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            // data: function() {
+            //     return {
+            //         greet: 'Heya!',
+            //         isVisible: false,
+            //         isVisible2: false
+            //     }
+            // },
+            // methods: {
+            //     toggleBox(){
+            //         this.isVisible2 = !this.isVisible2
+            //     },
+            //     greeting(greet){
+            //         console.log(greet)
+            //     }
+            // }
+
+            data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    increment() {
+      this.count++
+    }
+  }
+        })
+
+        app.component('login-form', {
+            template: `
+                <form @submit.prevent="handleSubmit">
+                    <h1>{{title}}</h1>
+                    <h3>{{now}}</h3>
+                    <custom-input type="email" v-model="email" :modelValue="email" :label="emailLabel"/>
+                    <custom-input type="password" v-model="password" :modelValue="password" :label="passwordLabel" />
+                </form>
+            `,
+            components: ['custom-input'],
+            data(){
+                return{
+                    title: 'Okay s that works',
+                    email: 'gg',
+                    password: 'ggggggg',
+                    emailLabel: 'And this',
+                    passwordLabel: 'And that',
+                    now: computed(() => Date.now())
+                }
+            },
+            methods: {
+                handleSubmit() {
+                    console.log(this.email, this.password, 'submitted')
+                }
+            }
+        })
+        app.component('custom-input', {
+            template:`
+                <label>
+                    {{ label }}
+                    <input type="text" v-model="inputValue">
+                </label>
+            `,
+            props: ['label', 'modelValue'],
+            computed: {
+                inputValue: {
+                    get(){
+                        return this.modelValue
+                    },
+                    set(value){
+                        console.log(value)
+                        this.$emit('update:modelValue', value)
+                    }
+                },
+            },
+            // data() {
+            //     return{
+            //         inputValue: ''
+            //     }
+            // }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

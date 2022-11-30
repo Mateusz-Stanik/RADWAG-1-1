@@ -23,7 +23,7 @@ body{
     font-size: 250%;
     padding: 1vh 0;
 }
-#container{
+#app{
     overflow-x: visible;
     margin-left: auto;
     margin-right: auto;
@@ -32,18 +32,17 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 80vh;
+    max-height: 80vh;
     min-width: 99vw !important;
     height: auto;
     font-size: 1.6vw;
 }
-
 .looks{
     overflow-x: visible;
     border-radius: 15px;
     background: #add8e6;
-    max-height:100% !important;
-    max-width: 100% !important;
+    min-height:60vh !important;
+    min-width: 20vw !important;
     display: inline-block;
     padding: 1.5vw;
     margin: 0 auto;
@@ -55,8 +54,8 @@ body{
   }
 .Data{
     overflow-x: visible;
-    max-height:100% !important;
-    max-width: 100% !important;
+    min-height:66vh !important;
+    min-width: 100% !important;
     display: inline-block;
     margin: 0 auto;
     background-color: #e0ffff;
@@ -74,14 +73,14 @@ body{
 .Prev{
     display: grid; 
     grid-auto-columns: 1fr; 
-    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr 1fr; 
     gap: 0; 
     grid-template-areas: 
-      "Top Top Top"
-      "Bottom Bottom Bottom"
-      "Bottom Bottom Bottom"
-      "Bottom Bottom Bottom"; 
+      "Top Top"
+      "Bottom Bottom"
+      "Bottom Bottom"
+      "Bottom Bottom"; 
     justify-content: center;
     flex-direction: row;
     align-items: center;
@@ -194,14 +193,13 @@ body{
     animation-iteration-count: infinite;
 }
 @media screen and (max-width: 1308px){
-    #container {
+    #app {
          width:50vw;
      }
      .looks{
-         width: auto;
+         width: 100vw;
          margin:0 auto;
          height: auto;
-         font-size: 2vw;
      }
  }
 @media screen and (max-width: 1024px){
@@ -210,7 +208,7 @@ body{
         margin:0 auto;
         height: auto;
     }
-   #container {
+   #app {
         display: flex;
         flex-direction: column;
         margin:0 auto;
@@ -218,13 +216,13 @@ body{
         font-size: larger;
     }
     .looks{
-        width: 80vw;
+        width: 99vw;
         margin:0 auto;
         height: auto;
     }
     .Data{
         max-height:90vh !important;
-        max-width: 90vw !important;
+        width: 99vw !important;
         margin: 0 auto;
     }
     img{

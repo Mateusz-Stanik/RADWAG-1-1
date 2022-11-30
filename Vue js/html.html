@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href=".">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <!--
+A nested tree component that recursively renders itself.
+You can double click on an item to turn it into a folder.
+-->
+<script src="https://unpkg.com/vue@next"></script>
+<script type="module">
+    import TreeItem from '../TreeItem.js'
+    
+    createApp({
+      components: {
+        TreeItem
+      },
+      setup() {
+        const treeData = ref({
+          name: 'My Tree',
+          children: [
+            { name: 'hello' },
+            { name: 'world' },
+            {
+              name: 'child folder',
+              children: [
+                {
+                  name: 'child folder',
+                  children: [{ name: 'hello' }, { name: 'world' }]
+                },
+                { name: 'hello' },
+                { name: 'world' },
+                {
+                  name: 'child folder',
+                  children: [{ name: 'hello' }, { name: 'world' }]
+                }
+              ]
+            }
+          ]
+        })
+    
+        return {
+          treeData
+        }
+      }
+    }).mount('#app')
+    </script>
+    
+    <div id="app">
+      <ul>
+        <tree-item class="item" :model="treeData"></tree-item>
+      </ul>
+    </div>
+</body>
+</html>
